@@ -261,7 +261,7 @@ function MainComponent() {
           updatedBoxes[hashValue] !== -1 &&
           hashValue <= size &&
           boxes.includes(-1) &&
-          step <= size
+          step < size
         ) {
           step++;
           hashValue = (m + step * step) % size;
@@ -287,6 +287,7 @@ So the new Hash-Index is ${hashValue}`);
         alert("Table size is smaller than new hash value");
         return;
       } else if (collisionResolution === "Double hashing") {
+        console.log("vaibhav");
         let prime = size - 3,
           i = 1;
         let firstHashingFunction, secondhashingFunction, newhashValue;
@@ -298,7 +299,7 @@ So the new Hash-Index is ${hashValue}`);
         while (
           updatedBoxes[newhashValue] !== -1 &&
           newhashValue <= size &&
-          boxes.includes(-1)
+          i < size
         ) {
           i++;
           newhashValue =
